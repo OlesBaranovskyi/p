@@ -10,20 +10,18 @@ class Subject():
        
     def detach(self,observer):
         self.observers.remove(observer)
+
     def Notify(self):
         for ob in self.observers:
             ob.update()
         print('Notify')
 
-  
-
-    
 
 class Observer():
     def __init__(self, _subject):
         self.subject = _subject
         self.subject.attach(self)
-      
+     
     def update(self):
         print('update observer')
       
@@ -36,8 +34,7 @@ class Timer(Subject):
         self.second = datetime.now().second
        
     def tick(self):
-        while True:
-            
+        while True:            
             if self.second != datetime.now().second:
                self.second = datetime.now().second
                self.Notify()
